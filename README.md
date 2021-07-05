@@ -8,4 +8,6 @@ This creates an admin user 'admin' with the password 'admin'. There are many oth
 ## Initialize a Frost Server
 For the Frost Server we use a simple docker-compose file found on their website at https://fraunhoferiosb.github.io/FROST-Server/deployment/docker.html.
 ## Set up Keycloak
-The docker image comes with a preinstalled master realm.
+The docker image comes with a preinstalled master realm. Now you have to create a new client with the same root url as your Frost Server which is already running locally on your system.
+## Set up the Frost server
+The standart settings in the docker-compose files are enough to get the basic features from keycloak. If more features are needed check out their documentation site at https://fraunhoferiosb.github.io/FROST-Server/settings/auth.html.
