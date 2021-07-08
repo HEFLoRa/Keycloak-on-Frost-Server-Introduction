@@ -1,4 +1,4 @@
-# KeycloakOnDockerDocumentation
+# Keycloak on Frost Server Introduction
 ## Introduction
 This is a brief documentation how to secure Frost servers with keycloak. To keep it simple, all examples are run in a docker container with the standard settings which are only changed when needed.
 ## Initzialize Keycloak
