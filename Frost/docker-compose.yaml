@@ -1,0 +1,46 @@
+version: '3'
+
+services: 
+    web:
+        image: fraunhoferiosb/frost-server:latest
+        container_name: FROSTSERVER_COMPOSE
+        environment: 
+            - serviceRootUrl=http://localhost:8080/FROST-Server
+            - http_cors-enable=true
+            - http_cors_allowed.origins=*
+            - presistence_db_driver=org.postgresql.Driver
+            - presistence_db_url=jdbc:postgresql://database:5432/sensorthings
+            - persistence_db_username=sensorthings
+            - persistence_db_password=ChangeMe
+            - persistence_autoUpdateDatabase=true
+            - auth.provider=de.fraunhofer.iosb.ilt.frostserver.auth.keycloak.KeycloakAuthProvider
+            - auth.keycloakConfigUrl=http://loclahost:3000/auth/realms/master/clients-registrations/install/frost
+        ports: 
+            - 5000:5000
+        links: 
+            - "authentication:keycloak"
+        depends_on: 
+            - database
+            - authentication
+    database:
+        image: postgis/postgis:11-2.5-alpine
+        environment:
+            - POSTGRES_DB=sensorthings
+            - POSTGRES_USER=sensorthings
+            - POSTGRES_PASSWORD=ChangeMe
+        volumes:
+            - postgis_volume:/var/lib/postgresql/data
+    authentication:
+        image: quay.io/keycloak/keycloak:10.0.2
+        container_name: KEYCLOAK_COMPOSE
+        environment: 
+            - KEYCLOAK_USER=admin
+            - KEYCLOAK_PASSWORD=admin
+        ports: 
+            - 3000:3000
+        volumes: 
+            - keycloak_volume:/var/lib/keycloak/data
+volumes: 
+    postgis_volume:
+    keycloak_volume:
+
