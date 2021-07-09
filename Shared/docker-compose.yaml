@@ -1,9 +1,11 @@
+## This file contains the Frost and the Keycloak server. There is no other file needed.
+
 version: '3'
 
 services: 
     web:
         image: fraunhoferiosb/frost-server:latest
-        container_name: FROSTSERVER_COMPOSE
+        container_name: FROSTSERVER_COMPOSE_SHARED
         environment: 
             - serviceRootUrl=http://localhost:8080/FROST-Server
             - http_cors-enable=true
@@ -31,8 +33,8 @@ services:
         volumes:
             - postgis_volume:/var/lib/postgresql/data
     authentication:
-        image: quay.io/keycloak/keycloak:10.0.2
-        container_name: KEYCLOAK_COMPOSE
+        image: quay.io/keycloak/keycloak:latest
+        container_name: KEYCLOAK_COMPOSE_SHARED
         environment: 
             - KEYCLOAK_USER=admin
             - KEYCLOAK_PASSWORD=admin
