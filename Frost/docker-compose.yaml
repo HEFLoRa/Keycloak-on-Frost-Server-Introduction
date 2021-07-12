@@ -17,7 +17,7 @@ services:
       - auth.provider=de.fraunhofer.iosb.ilt.frostserver.auth.keycloak.KeycloakAuthProvider
       - auth.keycloakConfigUrl=http://loclahost:3000/auth/realms/master/clients-registrations/install/frost
     ports:
-      - 8080:8080
+      - 5000:5000
       - 1883:1883
     depends_on:
       - database
