@@ -11,7 +11,7 @@ Click on create to create a new client.
 
 ![Keycloak-New-Client](https://user-images.githubusercontent.com/43475725/125332172-25ba0d80-e349-11eb-8438-8a3d77c67173.png)
 
-Now there should e a client for the Frost server. 
+Now there should a client for the Frost server. 
 ## Set up Frost
 You can start the Frost server with the given docker-compose file (if you haven't done it alreday by using the shared docker-compose file). You can access the server on http://loclahost:5000. This Frost server has no data in it. There is smaple data available on https://fraunhoferiosb.github.io/FROST-Server/deployment/docker.html which is easy to download.
 
