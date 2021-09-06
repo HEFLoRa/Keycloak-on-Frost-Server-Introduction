@@ -10,6 +10,7 @@ To start said docker-compose file:
 - once in the folder run `docker-compose up` or `docker-compose up *filename*` if there is more than one docker-compose in the folder
 - After a few seconds you should be able to find the admin console on http://localhost:8080
 
+
 ![Keycloak-Clients](https://user-images.githubusercontent.com/43475725/125331575-72511900-e348-11eb-958a-f22bd8c5b394.png)
 
 Click on create to create a new client.
