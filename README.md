@@ -22,5 +22,5 @@ Now there should a client for the Frost server.
 You can start the Frost server with the given docker-compose file (if you haven't done it alreday by using the shared docker-compose file). You can access the server on http://loclahost:5000 or on http://localhost:1883 if 5000 is already in usage. For the exact commands go back to **Set up Keycloak**. This Frost server has no data in it. There is smaple data available on https://fraunhoferiosb.github.io/FROST-Server/deployment/docker.html which is easy to download.
 ## Shared option
 There is another docker-compose file in the *shared* folder. This file allows you to both run the keycloak instance and the frost server with only one file. As there is a higher chance of conflicts on your local machine while running it this file is only for experienced developers who already know their way arround docker.
-When choosing this option the keycloak instance runs on http://loclhost:3000 and the Frost server on http://localhost:5000.
+When choosing this option the keycloak instance runs on http://localhost:3000 and the Frost server on http://localhost:5000.
 
