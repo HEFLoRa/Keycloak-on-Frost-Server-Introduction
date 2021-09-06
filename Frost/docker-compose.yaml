@@ -6,7 +6,7 @@ services:
   web:
     image: fraunhoferiosb/frost-server:latest
     environment:
-      - serviceRootUrl=http://localhost:8080/FROST-Server
+      - serviceRootUrl=http://localhost:5000/FROST-Server
       - http_cors_enable=true
       - http_cors_allowed.origins=*
       - persistence_db_driver=org.postgresql.Driver
@@ -15,7 +15,7 @@ services:
       - persistence_db_password=ChangeMe
       - persistence_autoUpdateDatabase=true
       - auth.provider=de.fraunhofer.iosb.ilt.frostserver.auth.keycloak.KeycloakAuthProvider
-      - auth.keycloakConfigUrl=http://loclahost:3000/auth/realms/master/clients-registrations/install/frost
+      - auth.keycloakConfigUrl=http://localhost:8080/auth/realms/master/clients-registrations/install/frost
     ports:
       - 5000:5000
       - 1883:1883
