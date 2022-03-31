@@ -1,27 +1,27 @@
-## This is a docker-compose file for a Frost server initialized with Keycloak. Another docker-compose file is needed for the Keycloak instance.
-
-version: '2'
+version: '3'
 
 services:
   web:
     image: fraunhoferiosb/frost-server:latest
     environment:
-      - serviceRootUrl=http://localhost:5000/FROST-Server
+      - serviceRootUrl=http://tuzehez-hefiot.srv.mwn.de:6004/FROST-Server
       - http_cors_enable=true
       - http_cors_allowed.origins=*
       - persistence_db_driver=org.postgresql.Driver
       - persistence_db_url=jdbc:postgresql://database:5432/sensorthings
       - persistence_db_username=sensorthings
       - persistence_db_password=ChangeMe
-      - persistence_autoUpdateDatabase=true
-      - auth.provider=de.fraunhofer.iosb.ilt.frostserver.auth.keycloak.KeycloakAuthProvider
-      - auth.keycloakConfigUrl=http://localhost:8080/auth/realms/master/clients-registrations/install/frost
+      - persistence_autoUpdateDatabase=true 
+      - persistence_alwaysOrderbyId=true
+      - auth.provider=de.fraunhofer.iosb.ilt.frostserver.auth.keycloak.KeycloakAuthProvider 
+      - auth.keycloakConfigUrl=http://tuzehez-hefiot.srv.mwn.de:8080/auth/realms/master/clients-registrations/install/frost     
+      - auth.keycloakConfigSecret=254d5dab-1a2c-4742-83c0-a409bd10c49f
     ports:
-      - 5000:5000
-      - 1883:1883
+      - 6004:8080
+      - 1889:1883
     depends_on:
       - database
-
+    restart: always
   database:
     image: postgis/postgis:11-2.5-alpine
     environment:
@@ -30,5 +30,6 @@ services:
       - POSTGRES_PASSWORD=ChangeMe
     volumes:
       - postgis_volume:/var/lib/postgresql/data
+    restart: always
 volumes:
     postgis_volume:
