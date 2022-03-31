@@ -1,5 +1,3 @@
-## This file contains the Frost and the Keycloak server. There is no other file needed.
-
 version: '3'
 
 services: 
@@ -7,7 +5,7 @@ services:
         image: fraunhoferiosb/frost-server:latest
         container_name: FROSTSERVER_COMPOSE_SHARED
         environment: 
-            - serviceRootUrl=http://localhost:8080/FROST-Server
+            - serviceRootUrl=http://<server-ip/url>:5000/FROST-Server
             - http_cors-enable=true
             - http_cors_allowed.origins=*
             - presistence_db_driver=org.postgresql.Driver
@@ -16,9 +14,10 @@ services:
             - persistence_db_password=ChangeMe
             - persistence_autoUpdateDatabase=true
             - auth.provider=de.fraunhofer.iosb.ilt.frostserver.auth.keycloak.KeycloakAuthProvider
-            - auth.keycloakConfigUrl=http://loclahost:3000/auth/realms/master/clients-registrations/install/frost
+            - auth.keycloakConfigUrl=http://<server-ip/url>:8088/auth/realms/master/clients-registrations/install/frost
         ports: 
-            - 5000:5000
+            - 5000:8080
+            - 1886:1883
         links: 
             - "authentication:keycloak"
         depends_on: 
@@ -39,7 +38,7 @@ services:
             - KEYCLOAK_USER=admin
             - KEYCLOAK_PASSWORD=admin
         ports: 
-            - 3000:3000
+            - 8088:8080
         volumes: 
             - keycloak_volume:/var/lib/keycloak/data
 volumes: 
