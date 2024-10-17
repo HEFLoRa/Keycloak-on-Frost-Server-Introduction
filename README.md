@@ -1,7 +1,7 @@
 # Keycloak on Frost Server Introduction
 ## Preface
 
-**IMPORTANT**: FROST-servers and Keycloak seem to work only when the url's are specified with a global IP or a domain-url - in other words: they don't communicate properly when hosted on localhost/127.0.0.1. 
+**IMPORTANT**: FROST-servers and Keycloak may work only when the url's are specified with a global IP or a domain-url - in other words: they don't communicate properly when hosted on localhost/127.0.0.1. 
 **Both the serviceRootUrl and keycloakConfigUrl mustn't be specified using "localhost" or "127.0.0.1"!**
 
 All exmaples are run with a docker-compose file. You can find seperate files for Keycloak and Frost or use the file in the *shared* folder which runs both services at once. To get no conflicts with different programs running locally on your machine make sure to check **docker container ls** and stop those containers.
