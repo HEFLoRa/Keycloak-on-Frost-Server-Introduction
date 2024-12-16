@@ -13,9 +13,9 @@ services:
       - persistence_db_password=ChangeMe
       - persistence_autoUpdateDatabase=true 
       - persistence_alwaysOrderbyId=true
-      - auth.provider=de.fraunhofer.iosb.ilt.frostserver.auth.keycloak.KeycloakAuthProvider 
-      - auth.keycloakConfigUrl=http://tuzehez-hefiot.srv.mwn.de:8080/auth/realms/master/clients-registrations/install/frost     
-      - auth.keycloakConfigSecret=254d5dab-1a2c-4742-83c0-a409bd10c49f
+      - auth_provider=de.fraunhofer.iosb.ilt.frostserver.auth.keycloak.KeycloakAuthProvider 
+      - auth_keycloakConfigUrl=http://tuzehez-hefiot.srv.mwn.de:8080/auth/realms/master/clients-registrations/install/frost     
+      - auth_keycloakConfigSecret=254d5dab-1a2c-4742-83c0-a409bd10c49f
     ports:
       - 6004:8080
       - 1889:1883
