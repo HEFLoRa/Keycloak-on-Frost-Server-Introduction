@@ -13,8 +13,8 @@ services:
             - persistence_db_username=sensorthings
             - persistence_db_password=ChangeMe
             - persistence_autoUpdateDatabase=true
-            - auth.provider=de.fraunhofer.iosb.ilt.frostserver.auth.keycloak.KeycloakAuthProvider
-            - auth.keycloakConfigUrl=http://<server-ip/url>:8088/auth/realms/master/clients-registrations/install/frost
+            - auth_provider=de.fraunhofer.iosb.ilt.frostserver.auth.keycloak.KeycloakAuthProvider
+            - auth_keycloakConfigUrl=http://<server-ip/url>:8088/auth/realms/master/clients-registrations/install/frost
         ports: 
             - 5000:8080
             - 1886:1883
